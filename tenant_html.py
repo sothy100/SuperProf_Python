@@ -6,7 +6,7 @@
 #modif par la branch
 from flask import Flask, render_template, request
 from login_aci import APIC_URL, USERNAME, PASSWORD
-#from aci_session import get_session
+from aci_session import get_session
 import requests
 import urllib3
 urllib3.disable_warnings()
