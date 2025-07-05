@@ -1,6 +1,5 @@
 import os
-#Ajout commentaire sothy +1
-"Ajout commentaire sothy +2"
+#Supprimer Ajout commentaire sothy +1
 print("************************")
 print("  AGE   ")
 print("*************************")
