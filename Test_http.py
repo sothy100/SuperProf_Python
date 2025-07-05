@@ -2,6 +2,9 @@ import requests
 
 # Chemin URL à recupérer
 chemin = "httpbin.org/get" 
+
+
+
 url = f"https://{chemin}"
 
 response = requests.get(url)

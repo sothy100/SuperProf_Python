@@ -1,0 +1,33 @@
+# Fichiers Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environnements virtuels
+.env/
+venv/
+.venv/
+
+# Fichiers sensibles
+*.ini
+*.conf
+*.cfg
+*.env
+*.secret
+*.key
+*.pem
+
+# Fichiers d'exécution
+*.log
+*.db
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# Ansible
+*.retry
+inventory.yaml
+host_vars/
+group_vars/
