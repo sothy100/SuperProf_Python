@@ -3,7 +3,7 @@
 # url: https://sandboxapicdc.cisco.com/api/node/mo/uni/tn-Test_tenant.json
 # payload: {"fvTenant":{"attributes":{"dn":"uni/tn-Test_tenant","name":"Test_tenant","rn":"tn-Test_tenant","status":"created"},"children":[]}}
 #**************************************************************************************************************
-#Modif 1
+#Fix : tenant_10
 import requests
 import urllib3
 urllib3.disable_warnings()  # Pour ignorer les warnings SSL
@@ -35,7 +35,7 @@ print("✅ Authentifié avec succès")
 
 # --- Saisie du nom du tenant ---
 #tenant = input("Quel est le tenant à créer ? ")
-tenant = "tenant_9"
+tenant = "tenant_10"
 # --- Vérifier si le tenant existe déjà ---
 check_url = f"{apic_url}/api/node/mo/uni/tn-{tenant}.json"
 check_response = session.get(check_url, verify=False)

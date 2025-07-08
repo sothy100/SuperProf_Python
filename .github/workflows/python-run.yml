@@ -1,10 +1,11 @@
 name: Exécuter tenant.py automatiquement
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - production  # ou remplace par ta branche par défaut
+
+  workflow_dispatch:
 
 jobs:
   run-tenant:
@@ -32,10 +33,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Récupérer le code
+      - name: 🔄 Récupérer le code
         uses: actions/checkout@v3
 
-      - name: Créer un tag et une release
+      - name: 🏷️ Créer un tag et une release
         uses: softprops/action-gh-release@v1
         with:
           tag_name: v1.0.${{ github.run_number }}
