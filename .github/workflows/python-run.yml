@@ -1,9 +1,10 @@
 name: Exécuter tenant.py automatiquement
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - master  # ou remplace par ta branche par défaut
+      - production  # ou remplace par ta branche par défaut
 
 jobs:
   run-tenant:
@@ -25,7 +26,7 @@ jobs:
 
       - name: ▶️ Exécuter tenant.py
         run: python tenant.py
-        
+
   create-release:
     needs: run-tenant  # Ce job ne démarre que si run-tenant a réussi
     runs-on: ubuntu-latest
