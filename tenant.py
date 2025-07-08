@@ -35,7 +35,7 @@ print("✅ Authentifié avec succès")
 
 # --- Saisie du nom du tenant ---
 #tenant = input("Quel est le tenant à créer ? ")
-tenant = "Tenant_8_juillet"
+tenant = "tenant_9"
 # --- Vérifier si le tenant existe déjà ---
 check_url = f"{apic_url}/api/node/mo/uni/tn-{tenant}.json"
 check_response = session.get(check_url, verify=False)
