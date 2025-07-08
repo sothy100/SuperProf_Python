@@ -3,7 +3,7 @@ name: Exécuter tenant.py automatiquement
 on:
   push:
     branches:
-      - devel  # ou remplace par ta branche par défaut
+      - master  # ou remplace par ta branche par défaut
 
 jobs:
   run-tenant:
