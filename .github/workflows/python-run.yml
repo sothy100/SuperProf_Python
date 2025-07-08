@@ -25,3 +25,20 @@ jobs:
 
       - name: ▶️ Exécuter tenant.py
         run: python tenant.py
+        
+  create-release:
+    needs: run-tenant  # Ce job ne démarre que si run-tenant a réussi
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v3
+
+      - name: Créer un tag et une release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: "Release v1.0.${{ github.run_number }}"
+          body: "📦 Automatique depuis GitHub Actions"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
