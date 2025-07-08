@@ -2,6 +2,16 @@ name: Exécuter tenant.py manuellement
 
 on:
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Choisir un tag ou une release'
+        required: true
+        type: choice
+        options:
+          - v1.0.0
+          - v1.0.1
+          - v1.0.2
+          - latest
 
 jobs:
   run-tenant:
@@ -23,3 +33,20 @@ jobs:
 
       - name: ▶️ Exécuter tenant.py
         run: python tenant.py
+
+  create-release:
+    needs: run-tenant
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔄 Récupérer le code
+        uses: actions/checkout@v3
+
+      - name: 🏷️ Créer un tag et une release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.event.inputs.version }}
+          name: "Release ${{ github.event.inputs.version }}"
+          body: "📦 Déploiement depuis GitHub Actions"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
