@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - production  # ou remplace par ta branche par défaut
-workflow_dispatch:
+    workflow_dispatch:
 
     jobs:
   run-tenant:
