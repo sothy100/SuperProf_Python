@@ -1,6 +1,6 @@
 import requests
 
-# URL à recupérer (sothy)
+# URL à recupérer
 
 chemin = "httpbin.org/get" 
 url = f"https://{chemin}"
