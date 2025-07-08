@@ -1,6 +1,6 @@
 import requests
 
-# Chemin URL à recupérer
+# URL à recupérer
 chemin = "httpbin.org/get" 
 url = f"https://{chemin}"
 
