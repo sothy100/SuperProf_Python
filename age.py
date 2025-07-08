@@ -1,5 +1,5 @@
 import os
-
+#Supprimer Ajout commentaire sothy +1
 print("************************")
 print("  AGE   ")
 print("*************************")
@@ -17,7 +17,7 @@ while True:
             print("********* Vous êtes un adulte ************")
         else:
             print("************** Vous êtes âgé. ***********23")
-
+git status
     except ValueError:
         print("Veuillez entrer un nombre valide.")
         continue
