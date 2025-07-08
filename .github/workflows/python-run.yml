@@ -1,11 +1,17 @@
-name: Exécuter tenant.py automatiquement
+name: Exécuter tenant.py manuellement
 
 on:
-  push:
-    branches:
-      - production  # ou remplace par ta branche par défaut
-
   workflow_dispatch:
+    inputs:
+      version:
+        description: 'Choisir un tag ou une release'
+        required: true
+        type: choice
+        options:
+          - v1.0.0
+          - v1.0.1
+          - v1.0.2
+          - latest
 
 jobs:
   run-tenant:
@@ -18,7 +24,7 @@ jobs:
       - name: 🐍 Installer Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.11  # adapte selon ta version Python
+          python-version: 3.11
 
       - name: 📦 Installer les dépendances
         run: |
@@ -29,7 +35,7 @@ jobs:
         run: python tenant.py
 
   create-release:
-    needs: run-tenant  # Ce job ne démarre que si run-tenant a réussi
+    needs: run-tenant
     runs-on: ubuntu-latest
 
     steps:
@@ -39,8 +45,8 @@ jobs:
       - name: 🏷️ Créer un tag et une release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: v1.0.${{ github.run_number }}
-          name: "Release v1.0.${{ github.run_number }}"
-          body: "📦 Automatique depuis GitHub Actions"
+          tag_name: ${{ github.event.inputs.version }}
+          name: "Release ${{ github.event.inputs.version }}"
+          body: "📦 Déploiement depuis GitHub Actions"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
