@@ -1,11 +1,7 @@
 name: Exécuter tenant.py automatiquement
 
 on:
-  push:
-    branches:
-      - production  # ou remplace par ta branche par défaut
-
-  workflow_dispatch:
+  workflow_dispatch:  # Déclenchement uniquement manuel
 
 jobs:
   run-tenant:
