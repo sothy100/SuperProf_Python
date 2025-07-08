@@ -34,8 +34,8 @@ if login_response.status_code != 200:
 print("✅ Authentifié avec succès")
 
 # --- Saisie du nom du tenant ---
-tenant = input("Quel est le tenant à créer ? ")
-
+#tenant = input("Quel est le tenant à créer ? ")
+tenant = "Tenant_8_juillet"
 # --- Vérifier si le tenant existe déjà ---
 check_url = f"{apic_url}/api/node/mo/uni/tn-{tenant}.json"
 check_response = session.get(check_url, verify=False)
