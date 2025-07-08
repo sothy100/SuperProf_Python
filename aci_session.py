@@ -1,14 +1,15 @@
+#************************
 # aci_session.py
-
+#*************************
 import requests
+import urllib3
 from login_aci import APIC_URL, USERNAME, PASSWORD
 
-class aci:
-    session = None
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+class ACI:
     def __init__(self):
-        session = None
-    
+        self.session = None
     def get_session(self):
         session = requests.Session()
         login_url = f"{APIC_URL}/api/aaaLogin.json"
@@ -20,8 +21,11 @@ class aci:
                 }
             }
         }
+
         response = session.post(login_url, json=login_payload, verify=False)
-        #verifiy=false ---> desactive la verification SSL
         if response.status_code == 200:
             self.session = session
-        
+            return session
+        else:
+            print(f"❌ Erreur de connexion : {response.status_code}")
+            return None
